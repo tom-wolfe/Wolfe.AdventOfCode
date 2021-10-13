@@ -16,4 +16,10 @@
     <ProjectReference Include="..\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Day01\Day01Part1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

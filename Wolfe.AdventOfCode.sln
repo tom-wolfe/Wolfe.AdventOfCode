@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.2020", "src\Wolfe.AdventOfCode.2020\Wolfe.AdventOfCode.2020.csproj", "{48EC040E-A42E-4E6A-866C-DEF780148B51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2020", "src\Wolfe.AdventOfCode.2020\Wolfe.AdventOfCode.Y2020.csproj", "{48EC040E-A42E-4E6A-866C-DEF780148B51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Common", "src\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj", "{6E104E7D-8A9C-4798-B950-38B5CC4EEF83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Common", "src\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj", "{6E104E7D-8A9C-4798-B950-38B5CC4EEF83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2020.Tests", "src\Wolfe.AdventOfCode.2020.Tests\Wolfe.AdventOfCode.Y2020.Tests.csproj", "{4F077CE5-FEF6-48C6-AEFD-6739D334DB36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6E104E7D-8A9C-4798-B950-38B5CC4EEF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E104E7D-8A9C-4798-B950-38B5CC4EEF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E104E7D-8A9C-4798-B950-38B5CC4EEF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F077CE5-FEF6-48C6-AEFD-6739D334DB36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F077CE5-FEF6-48C6-AEFD-6739D334DB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F077CE5-FEF6-48C6-AEFD-6739D334DB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F077CE5-FEF6-48C6-AEFD-6739D334DB36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

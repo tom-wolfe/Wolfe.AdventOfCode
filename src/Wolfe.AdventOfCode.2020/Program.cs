@@ -1,6 +1,6 @@
 ﻿using Unity;
+using Wolfe.AdventOfCode._2020.Day01;
 using Wolfe.AdventOfCode.Common;
-using Wolfe.AdventOfCode._2020.Day1;
 
 var container = new UnityContainer();
 var parts = new List<IPuzzlePart>
