@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Unity;
+using Wolfe.AdventOfCode.Common;
+using Wolfe.AdventOfCode._2020.Day1;
+
+var container = new UnityContainer();
+var parts = new List<IPuzzlePart>
+{
+    container.Resolve<Day01Part1>(),
+    container.Resolve<Day01Part2>()
+};
+
+await Parallel.ForEachAsync(parts, async (part, cancellationToken) =>
+{
+    var result = await part.Solve(cancellationToken);
+    Console.WriteLine($"Day {part.Day} Part {part.Part} Solution: {result}");
+});
+
+Console.ReadLine();

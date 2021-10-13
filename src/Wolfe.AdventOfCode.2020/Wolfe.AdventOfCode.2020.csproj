@@ -8,4 +8,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj" />
+  </ItemGroup>
+
 </Project>
