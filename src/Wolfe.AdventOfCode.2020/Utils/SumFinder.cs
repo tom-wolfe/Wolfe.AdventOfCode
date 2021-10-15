@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode._2020.Day01
+﻿namespace Wolfe.AdventOfCode._2020.Utils
 {
     public class SumFinder
     {

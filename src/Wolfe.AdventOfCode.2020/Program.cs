@@ -1,18 +1,22 @@
 ﻿using Unity;
-using Wolfe.AdventOfCode._2020.Day01;
+using Wolfe.AdventOfCode._2020.Puzzles;
 using Wolfe.AdventOfCode.Common;
 
 var container = new UnityContainer();
-var parts = new List<IPuzzlePart>
+var days = new List<IPuzzleDay>
 {
-    container.Resolve<Day01Part1>(),
-    container.Resolve<Day01Part2>()
+    container.Resolve<Day01>(),
+    container.Resolve<Day02>(),
 };
 
-await Parallel.ForEachAsync(parts, async (part, cancellationToken) =>
+var puzzleDays = days
+    .Select(day => new KeyValuePair<int, (Task<string>, Task<string>)>(day.Day, (day.Part1(), day.Part2())))
+    .OrderBy(d => d.Key);
+
+foreach (var (day, (part1, part2)) in puzzleDays)
 {
-    var result = await part.Solve(cancellationToken);
-    Console.WriteLine($"Day {part.Day} Part {part.Part} Solution: {result}");
-});
+    Console.WriteLine($"Day {day} Part 1 Solution: {await part1}");
+    Console.WriteLine($"Day {day} Part 2 Solution: {await part2}");
+}
 
 Console.ReadLine();

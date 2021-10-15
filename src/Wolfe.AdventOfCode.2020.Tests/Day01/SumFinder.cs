@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using FluentAssertions;
-using Wolfe.AdventOfCode._2020.Day01;
+using Wolfe.AdventOfCode._2020.Utils;
 using Xunit;
 
 namespace Wolfe.AdventOfCode._2020.Tests.Day01
