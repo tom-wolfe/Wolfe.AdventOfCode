@@ -3,7 +3,7 @@ using FluentAssertions;
 using Wolfe.AdventOfCode._2020.Utils;
 using Xunit;
 
-namespace Wolfe.AdventOfCode._2020.Tests.Day01
+namespace Wolfe.AdventOfCode._2020.Tests
 {
     public class SumFinderTests
     {
