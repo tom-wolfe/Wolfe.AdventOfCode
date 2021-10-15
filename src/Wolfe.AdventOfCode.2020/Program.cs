@@ -7,7 +7,8 @@ var days = new List<IPuzzleDay>
 {
     container.Resolve<Day01>(),
     container.Resolve<Day02>(),
-    container.Resolve<Day03>()
+    container.Resolve<Day03>(),
+    container.Resolve<Day04>()
 };
 
 var puzzleDays = days
@@ -16,8 +17,10 @@ var puzzleDays = days
 
 foreach (var (day, (part1, part2)) in puzzleDays)
 {
-    Console.WriteLine($"Day {day} Part 1 Solution: {await part1}");
-    Console.WriteLine($"Day {day} Part 2 Solution: {await part2}");
+    Console.WriteLine($"Day {day}:");
+    Console.WriteLine($"  Part 1 Solution: {await part1}");
+    Console.WriteLine($"  Part 2 Solution: {await part2}");
+    Console.WriteLine();
 }
 
 Console.ReadLine();
