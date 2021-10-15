@@ -20,7 +20,8 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         public Task<string> Part2(CancellationToken cancellationToken = default)
         {
-            return Task.FromResult("");
+            var count = LazyPassport.Count(p => p.IsValidStrict());
+            return Task.FromResult(count.ToString());
         }
 
         private static List<Passport> ParsePassports(IEnumerable<string> input)
@@ -44,10 +45,59 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         private class Passport : Dictionary<string, string>
         {
+            private static readonly Regex HgtRegex = new(@"^(?<height>\d+)(?<unit>(cm|in))$");
+            private static readonly Regex HclRegex = new(@"^#[0-9a-f]{6}$");
+            private static readonly Regex EclRegex = new(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
+            private static readonly Regex PidRegex = new(@"^\d{9}$");
+
             public bool IsValid()
             {
                 return ContainsKeys("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid");
             }
+
+            public bool IsValidStrict()
+            {
+                if (!IsValid()) return false;
+                return ValidateByr() && ValidateIyr() && ValidateEyr() && ValidateHgt()
+                       && ValidateHcl() && ValidateEcl() && ValidatePid();
+
+            }
+
+            private bool ValidateByr()
+            {
+                int.TryParse(this["byr"], out var byr);
+                return byr is >= 1920 and <= 2002;
+            }
+
+            private bool ValidateIyr()
+            {
+                int.TryParse(this["iyr"], out var iyr);
+                return iyr is >= 2010 and <= 2020;
+            }
+
+            private bool ValidateEyr()
+            {
+                int.TryParse(this["eyr"], out var eyr);
+                return eyr is >= 2020 and <= 2030;
+            }
+
+            private bool ValidateHgt()
+            {
+                var match = HgtRegex.Match(this["hgt"]);
+                if (!match.Success) { return false; }
+                var unit = match.Groups["unit"].Value;
+                int.TryParse(match.Groups["height"].Value, out var height);
+                return unit switch
+                {
+                    "cm" => height is >=150 and <= 193,
+                    "in" => height is >= 59 and <= 76,
+                    _ => false
+                };
+            }
+
+            private bool ValidateHcl() => HclRegex.IsMatch(this["hcl"]);
+            private bool ValidateEcl() => EclRegex.IsMatch(this["ecl"]);
+            private bool ValidatePid() => PidRegex.IsMatch(this["pid"]);
 
             private bool ContainsKeys(params string[] keys)
             {
@@ -56,3 +106,4 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
         }
     }
 }
+
