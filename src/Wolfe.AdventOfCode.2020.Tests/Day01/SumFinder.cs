@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using FluentAssertions;
 using Wolfe.AdventOfCode._2020.Day01;
 using Xunit;
@@ -8,21 +7,33 @@ namespace Wolfe.AdventOfCode._2020.Tests.Day01
 {
     public class SumFinderTests
     {
-        [Fact]
-        public void Test1()
+        private static readonly List<int> SampleInput = new()
         {
-            var sumFinder = new SumFinder(new List<int>()
-            {
-                1721,
-                979,
-                366,
-                299,
-                675,
-                1456
-            });
-            var pair = sumFinder.FindPair(2020);
-            pair.Item1.Should().Be(1721);
-            pair.Item2.Should().Be(299);
+            1721,
+            979,
+            366,
+            299,
+            675,
+            1456
+        };
+
+        [Fact]
+        public void FindPair_FindsPair()
+        {
+            var sumFinder = new SumFinder(SampleInput);
+            var (a, b) = sumFinder.FindPair(2020);
+            a.Should().Be(1721);
+            b.Should().Be(299);
+        }
+
+        [Fact]
+        public void FindTriplet_FindsTriplet()
+        {
+            var sumFinder = new SumFinder(SampleInput);
+            var (a, b, c) = sumFinder.FindTriplet(2020);
+            a.Should().Be(979);
+            b.Should().Be(366);
+            c.Should().Be(675);
         }
     }
 }

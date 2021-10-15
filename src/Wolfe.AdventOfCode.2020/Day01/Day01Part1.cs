@@ -10,12 +10,12 @@ namespace Wolfe.AdventOfCode._2020.Day01
         public Task<string> Solve(CancellationToken cancellationToken)
         {
             var input = File
-                .ReadAllLines("./Day01/Day01Part1.txt")
+                .ReadAllLines("./Day01/Input.txt")
                 .Select(int.Parse)
                 .ToList();
             var sum = new SumFinder(input);
-            var pair = sum.FindPair(2020);
-            var solution = pair.Item1 * pair.Item2;
+            var (a, b) = sum.FindPair(2020);
+            var solution = a * b;
             return Task.FromResult(solution.ToString());
         }
     }

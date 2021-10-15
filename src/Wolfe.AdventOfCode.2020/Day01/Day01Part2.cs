@@ -9,7 +9,14 @@ namespace Wolfe.AdventOfCode._2020.Day01
 
         public Task<string> Solve(CancellationToken cancellationToken)
         {
-            return Task.FromResult("0");
+            var input = File
+                .ReadAllLines("./Day01/Input.txt")
+                .Select(int.Parse)
+                .ToList();
+            var sum = new SumFinder(input);
+            var (a, b, c) = sum.FindTriplet(2020);
+            var solution = a * b * c;
+            return Task.FromResult(solution.ToString());
         }
     }
 }
