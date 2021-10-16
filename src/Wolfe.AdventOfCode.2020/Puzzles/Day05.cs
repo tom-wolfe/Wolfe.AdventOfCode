@@ -23,8 +23,15 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         public Task<string> Part2(CancellationToken cancellationToken = default)
         {
-            var count = "";
-            return Task.FromResult(count.ToString());
+            var seatIds = BoardingPasses.Select(b => b.GetId()).OrderBy(p => p).ToList();
+
+            var expected = seatIds[0];
+            foreach (var id in seatIds)
+            {
+                if (id != expected) return Task.FromResult(expected.ToString());
+                expected = id + 1;
+            }
+            return Task.FromResult("Error");
         }
 
         private static BoardingPass ParseBoardingPass(string pass)
