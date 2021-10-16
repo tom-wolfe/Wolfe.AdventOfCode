@@ -1,5 +1,8 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
+using Wolfe.AdventOfCode._2020.Utils;
 using Wolfe.AdventOfCode.Common;
+using Wolfe.AdventOfCode.Common.Extensions;
 
 namespace Wolfe.AdventOfCode._2020.Puzzles
 {
@@ -26,25 +29,19 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         private static List<Passport> ParsePassports(IEnumerable<string> input)
         {
-            var passports = new List<Passport>();
-            var currentPassport = new Passport();
-            foreach (var line in input)
+            return input.GroupLines().Select(group =>
             {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    passports.Add(currentPassport);
-                    currentPassport = new Passport();
-                }
-                var matches = PassportRegex.Matches(line);
-                foreach (Match match in matches)
-                    currentPassport.Add(match.Groups["key"].Value, match.Groups["value"].Value);
-            }
-            passports.Add(currentPassport);
-            return passports;
+                var fields = group
+                    .Select(line => PassportRegex.Matches(line))
+                    .SelectMany(matches => matches)
+                    .ToDictionary(m => m.Groups["key"].Value, m => m.Groups["value"].Value);
+                return new Passport(fields);
+            }).ToList();
         }
 
         private class Passport : Dictionary<string, string>
         {
+            public Passport(IDictionary<string, string> source): base(source) { }
             private static readonly Regex HgtRegex = new(@"^(?<height>\d+)(?<unit>(cm|in))$");
             private static readonly Regex HclRegex = new(@"^#[0-9a-f]{6}$");
             private static readonly Regex EclRegex = new(@"^(amb|blu|brn|gry|grn|hzl|oth)$");

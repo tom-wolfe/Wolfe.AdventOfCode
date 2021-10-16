@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Wolfe.AdventOfCode._2020.Utils;
 using Wolfe.AdventOfCode.Common;
+using Wolfe.AdventOfCode.Common.Extensions;
 
 namespace Wolfe.AdventOfCode._2020.Puzzles
 {
@@ -36,8 +37,8 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         private static BoardingPass ParseBoardingPass(string pass)
         {
-            var row = Binary.FromString(pass[..7], 'B', 'F');
-            var column = Binary.FromString(pass[7..], 'R', 'L');
+            var row = StringExtensions.ToBinary(pass[..7], 'B', 'F');
+            var column = StringExtensions.ToBinary(pass[7..], 'R', 'L');
             return new BoardingPass(row, column);
         }
 
