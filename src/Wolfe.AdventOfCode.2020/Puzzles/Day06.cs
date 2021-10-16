@@ -18,7 +18,8 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         public Task<string> Part2(CancellationToken cancellationToken = default)
         {
-            return Task.FromResult("");
+            var sum = Groups.Sum(g => g.People[0].Answers.Count(a => g.People.All(p => p.Answers.Contains(a))));
+            return Task.FromResult(sum.ToString());
         }
 
         private static List<Group> ParseGroups(string input)
