@@ -50,6 +50,17 @@
             .Where(b => b.Value.Any(i => i.Item2 == adjective && i.Item3 == color))
             .Select(b => b.Key);
 
+        public int CountBagsWithin(string adjective, string color)
+        {
+            var count = 0;
+            var contents = GetOrCreateBag(adjective, color);
+            foreach (var (qty, bagAdj, bagCol) in contents)
+            {
+                count += qty + qty * CountBagsWithin(bagAdj, bagCol);
+            }
+            return count;
+        }
+
         private List<(int, string, string)> GetOrCreateBag(string adjective, string color)
         {
             var key = (adjective, color);
