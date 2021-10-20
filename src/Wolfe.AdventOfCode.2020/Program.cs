@@ -11,7 +11,8 @@ var days = new List<IPuzzleDay>
     container.Resolve<Day04>(),
     container.Resolve<Day05>(),
     container.Resolve<Day06>(),
-    container.Resolve<Day07>()
+    container.Resolve<Day07>(),
+    container.Resolve<Day08>(),
 };
 
 var puzzleDays = days
