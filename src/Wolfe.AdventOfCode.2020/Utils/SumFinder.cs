@@ -32,7 +32,7 @@
                 {
                     var c = sum - (a + b);
                     if (c <= 0) { continue; }
-                    if (_source.Contains(c)) { return (a, b, c);}
+                    if (_source.Contains(c)) { return (a, b, c); }
                 }
             }
             throw new Exception("No matching triplet found");

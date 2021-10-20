@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-namespace Wolfe.AdventOfCode._2020.Utils
+﻿namespace Wolfe.AdventOfCode._2020.Utils
 {
     internal class StateMachine
     {

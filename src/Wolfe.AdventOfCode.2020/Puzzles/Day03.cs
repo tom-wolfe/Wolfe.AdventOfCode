@@ -23,7 +23,7 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
             var part3 = TreeMap.CountTrees(5, 1);
             var part4 = TreeMap.CountTrees(7, 1);
             var part5 = TreeMap.CountTrees(1, 2);
-            var answer = part1 * part2 * part3 * part4 * part5; 
+            var answer = part1 * part2 * part3 * part4 * part5;
             return Task.FromResult(answer.ToString());
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text.RegularExpressions;
-using Wolfe.AdventOfCode._2020.Utils;
+﻿using System.Text.RegularExpressions;
 using Wolfe.AdventOfCode.Common;
 using Wolfe.AdventOfCode.Common.Extensions;
 
@@ -41,7 +39,7 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         private class Passport : Dictionary<string, string>
         {
-            public Passport(IDictionary<string, string> source): base(source) { }
+            public Passport(IDictionary<string, string> source) : base(source) { }
             private static readonly Regex HgtRegex = new(@"^(?<height>\d+)(?<unit>(cm|in))$");
             private static readonly Regex HclRegex = new(@"^#[0-9a-f]{6}$");
             private static readonly Regex EclRegex = new(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
@@ -86,7 +84,7 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
                 int.TryParse(match.Groups["height"].Value, out var height);
                 return unit switch
                 {
-                    "cm" => height is >=150 and <= 193,
+                    "cm" => height is >= 150 and <= 193,
                     "in" => height is >= 59 and <= 76,
                     _ => false
                 };

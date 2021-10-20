@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using Wolfe.AdventOfCode._2020.Utils;
-using Wolfe.AdventOfCode.Common;
+﻿using Wolfe.AdventOfCode.Common;
 using Wolfe.AdventOfCode.Common.Extensions;
 
 namespace Wolfe.AdventOfCode._2020.Puzzles

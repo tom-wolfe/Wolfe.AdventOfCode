@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using FluentAssertions;
+using System.Collections.Generic;
 using Wolfe.AdventOfCode._2020.Utils;
 using Xunit;
 

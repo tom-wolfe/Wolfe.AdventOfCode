@@ -7,7 +7,7 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
     {
         public int Day { get; } = 2;
 
-        private static readonly Regex PasswordRegex = new (@"(?<min>\d+)-(?<max>\d+) (?<letter>\D): (?<password>\D+)");
+        private static readonly Regex PasswordRegex = new(@"(?<min>\d+)-(?<max>\d+) (?<letter>\D): (?<password>\D+)");
         private static readonly Lazy<List<PasswordModel>> LazyPasswords = new(() => File
             .ReadAllLines("./Inputs/Day02.txt")
             .Select(ParsePassword)
