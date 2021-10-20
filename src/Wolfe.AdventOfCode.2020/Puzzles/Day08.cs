@@ -22,7 +22,8 @@ namespace Wolfe.AdventOfCode._2020.Puzzles
 
         public Task<string> Part2(CancellationToken cancellationToken = default)
         {
-            return Task.FromResult("");
+            var result = _stateMachine.RunWithAutoFix();
+            return Task.FromResult(result.ToString());
         }
     }
 }
