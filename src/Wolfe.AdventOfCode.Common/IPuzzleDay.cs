@@ -1,9 +1,8 @@
-﻿namespace Wolfe.AdventOfCode.Common
+﻿namespace Wolfe.AdventOfCode;
+
+public interface IPuzzleDay
 {
-    public interface IPuzzleDay
-    {
-        int Day { get; }
-        Task<string> Part1(CancellationToken cancellationToken = default);
-        Task<string> Part2(CancellationToken cancellationToken = default);
-    }
+    int Day { get; }
+    Task<string> Part1(string? input, CancellationToken cancellationToken = default);
+    Task<string> Part2(string? input, CancellationToken cancellationToken = default);
 }

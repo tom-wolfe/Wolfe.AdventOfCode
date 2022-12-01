@@ -1,0 +1,1 @@
+﻿await PuzzleRunner.RunPuzzles<Program>();
