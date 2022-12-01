@@ -8,12 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Inputs\" />
-    <Folder Include="Puzzles\" />
+    <ProjectReference Include="..\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Wolfe.AdventOfCode.Common\Wolfe.AdventOfCode.Common.csproj" />
+    <None Update="Inputs\Day04\Part1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

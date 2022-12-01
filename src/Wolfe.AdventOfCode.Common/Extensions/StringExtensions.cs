@@ -31,4 +31,18 @@ public static class StringExtensions
         if (group.Any()) { result.Add(group); }
         return result;
     }
+
+    public static Dictionary<char, int> CharacterFrequency(this string? input)
+    {
+        var result = new Dictionary<char, int>();
+        foreach(var c in input ?? "")
+        {
+            if (!result.ContainsKey(c))
+            {
+                result.Add(c, 0);
+            }
+            result[c]++;
+        }
+        return result;
+    }
 }
