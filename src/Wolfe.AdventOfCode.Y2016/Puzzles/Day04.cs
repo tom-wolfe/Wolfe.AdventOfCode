@@ -9,16 +9,19 @@ internal class Day04 : IPuzzleDay
     public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(ParseRoom)
-        .Where(r => r.IsReal)
+        .Where(r => r.IsReal())
         .Select(r => r.SectorId)
         .Sum()
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult("");
-    }
+    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+        .ToLines()
+        .Select(ParseRoom)
+        .First(r => r.Decrypt() == "northpole object storage")
+        .SectorId
+        .ToString()
+        .ToTask();
 
     private static Room ParseRoom(string input)
     {
@@ -28,7 +31,9 @@ internal class Day04 : IPuzzleDay
 
     private record Room(string Name, int SectorId, string Checksum)
     {
-        public bool IsReal => Checksum == Name
+        public string Decrypt() => Name.CaesarShift(SectorId).Replace('-', ' ');
+
+        public bool IsReal() => Checksum == Name
             .Replace("-", null)
             .CharacterFrequency()
             .OrderByDescending(f => f.Value)

@@ -1,4 +1,7 @@
-﻿namespace Wolfe.AdventOfCode.Extensions;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
+
+namespace Wolfe.AdventOfCode.Extensions;
 
 public static class StringExtensions
 {
@@ -45,4 +48,8 @@ public static class StringExtensions
         }
         return result;
     }
+
+    public static string CaesarShift(this string? input, int distance) => (input ?? "")
+        .Select(c => c.CaesarShift(distance))
+        .Join();
 }
