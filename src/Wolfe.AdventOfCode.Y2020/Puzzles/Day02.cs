@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Wolfe.AdventOfCode.Y2020.Puzzles;
+﻿namespace Wolfe.AdventOfCode.Y2020.Puzzles;
 
 internal class Day02 : IPuzzleDay
 {

@@ -1,2 +1,1 @@
-﻿global using Wolfe.AdventOfCode.Extensions;
-global using Wolfe.AdventOfCode.Helpers;
+﻿global using Wolfe.AdventOfCode.Helpers;

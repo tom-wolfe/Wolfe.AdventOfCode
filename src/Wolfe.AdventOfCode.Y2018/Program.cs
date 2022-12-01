@@ -1,3 +1,1 @@
-﻿using Wolfe.AdventOfCode.Helpers;
-
-await PuzzleRunner.RunPuzzles<Program>();
+﻿await PuzzleRunner.RunPuzzles<Program>();
