@@ -13,11 +13,7 @@ record Round(RockPaperScissors You, RockPaperScissors Opponent)
 {
     public int Score => (int)You + (Opponent == You ? 3 : You == LosesAgainst(Opponent) ? 6 : 0);
 
-    public static Round FromInstruction(string input)
-    {
-        return new Round(Parse(input[2]), Parse(input[0]));
-    }
-
+    public static Round FromInstruction(string input) => new(Parse(input[2]), Parse(input[0]));
     public static Round FromWinState(string input)
     {
         var opponent = Parse(input[0]);
