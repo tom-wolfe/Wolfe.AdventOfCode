@@ -1,10 +1,9 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-
-namespace Wolfe.AdventOfCode.Extensions;
+﻿namespace Wolfe.AdventOfCode.Extensions;
 
 public static class StringExtensions
 {
+    public static IEnumerable<string> SplitByLength(this string input, int size) => input.Chunk(size).Select(c => c.Join());
+
     public static int ToBinary(this string input, char one, char zero)
     {
         var binString = input.Replace(one, '1').Replace(zero, '0');
