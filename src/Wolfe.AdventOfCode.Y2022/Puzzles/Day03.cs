@@ -14,7 +14,15 @@ internal class Day03 : IPuzzleDay
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => "".ToTask();
+    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+        .ToLines()
+        .Chunk(3)
+        .Select(FindCommon)
+        .Join()
+        .Select(Priority)
+        .Sum()
+        .ToString()
+        .ToTask();
 
     private static char FindCommon(IEnumerable<string> input) => input.Cast<IEnumerable<char>>().Aggregate((p, n) => p.Intersect(n)).First();
 
