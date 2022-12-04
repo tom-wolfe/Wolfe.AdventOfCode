@@ -12,7 +12,12 @@ internal class Day04 : IPuzzleDay
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => ""
+    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+        .ToLines()
+        .Select(Parse)
+        .Where(HaveOverlap)
+        .Count()
+        .ToString()
         .ToTask();
 
     private static IEnumerable<int[]> Parse(string input) => input
@@ -29,5 +34,11 @@ internal class Day04 : IPuzzleDay
     {
         var (l, r) = input;
         return l.Intersect(r).Count() == Math.Min(l.Length, r.Length);
+    }
+
+    private static bool HaveOverlap(IEnumerable<int[]> input)
+    {
+        var (l, r) = input;
+        return l.Intersect(r).Any();
     }
 }
