@@ -7,22 +7,21 @@ internal class Day04 : IPuzzleDay
     public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Parse)
-        .Where(FullyContains)
-        .Count()
+        .Count(FuncHelpers.Gather<int[], int[], bool>(FullyContains))
         .ToString()
         .ToTask();
 
     public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Parse)
-        .Where(HaveOverlap)
-        .Count()
+        .Count(FuncHelpers.Gather<int[], int[], bool>(HaveOverlap))
         .ToString()
         .ToTask();
 
-    private static IEnumerable<int[]> Parse(string input) => input
+    private static (int[], int[]) Parse(string input) => input
         .Split(',')
-        .Select(ParseRange);
+        .Select(ParseRange)
+        .ToTuple2();
 
     private static int[] ParseRange(string range)
     {
@@ -30,15 +29,6 @@ internal class Day04 : IPuzzleDay
         return Enumerable.Range(from, to - from + 1).ToArray();
     }
 
-    private static bool FullyContains(IEnumerable<int[]> input)
-    {
-        var (l, r) = input;
-        return l.Intersect(r).Count() == Math.Min(l.Length, r.Length);
-    }
-
-    private static bool HaveOverlap(IEnumerable<int[]> input)
-    {
-        var (l, r) = input;
-        return l.Intersect(r).Any();
-    }
+    private static bool FullyContains(int[] left, int[] right) => left.Intersect(right).Count() == Math.Min(left.Length, right.Length);
+    private static bool HaveOverlap(int[] left, int[] right) => left.Intersect(right).Any();
 }
