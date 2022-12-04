@@ -20,14 +20,9 @@ internal class Day04 : IPuzzleDay
 
     private static (int[], int[]) Parse(string input) => input
         .Split(',')
-        .Select(ParseRange)
+        .Select(r => r.Split('-').Select(int.Parse).ToTuple2())
+        .Select(r => Enumerable.Range(r.Item1, r.Item2 - r.Item1 + 1).ToArray())
         .ToTuple2();
-
-    private static int[] ParseRange(string range)
-    {
-        var (from, to) = range.Split('-').Select(int.Parse);
-        return Enumerable.Range(from, to - from + 1).ToArray();
-    }
 
     private static bool FullyContains(int[] left, int[] right) => left.Intersect(right).Count() == Math.Min(left.Length, right.Length);
     private static bool HaveOverlap(int[] left, int[] right) => left.Intersect(right).Any();
