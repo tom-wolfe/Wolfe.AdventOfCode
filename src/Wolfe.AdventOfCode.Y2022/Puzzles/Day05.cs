@@ -16,7 +16,7 @@ internal partial class Day05 : IPuzzleDay
         var state = ParseState(rawState);
         var instructions = ParseInstructions(rawInstructions);
 
-        Run(state, instructions);
+        RunCrateMover9000(state, instructions);
 
         return state
             .Select(c => c.Peek())
@@ -24,8 +24,20 @@ internal partial class Day05 : IPuzzleDay
             .ToTask();
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => ""
-        .ToTask();
+    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    {
+        var (rawState, rawInstructions) = input.GroupLines();
+
+        var state = ParseState(rawState);
+        var instructions = ParseInstructions(rawInstructions);
+
+        RunCrateMover9001(state, instructions);
+
+        return state
+            .Select(c => c.Peek())
+            .Join()
+            .ToTask();
+    }
 
     private static List<Stack<char>> ParseState(IEnumerable<string> input)
     {
@@ -64,7 +76,7 @@ internal partial class Day05 : IPuzzleDay
             );
         }).ToList();
 
-    private static void Run(List<Stack<char>> state, List<(int, int, int)> instructions)
+    private static void RunCrateMover9000(List<Stack<char>> state, List<(int, int, int)> instructions)
     {
         foreach (var instruction in instructions)
         {
@@ -72,6 +84,23 @@ internal partial class Day05 : IPuzzleDay
             {
                 var y = state[instruction.Item2].Pop();
                 state[instruction.Item3].Push(y);
+            }
+        }
+    }
+
+    private static void RunCrateMover9001(List<Stack<char>> state, List<(int, int, int)> instructions)
+    {
+        foreach (var instruction in instructions)
+        {
+            var temp = "";
+            for (var x = 1; x <= instruction.Item1; x++)
+            {
+                temp += state[instruction.Item2].Pop();
+            }
+
+            foreach (var item in temp.Reverse())
+            {
+                state[instruction.Item3].Push(item);
             }
         }
     }
