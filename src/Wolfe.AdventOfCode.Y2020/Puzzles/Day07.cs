@@ -4,7 +4,7 @@ internal class Day07 : IPuzzleDay
 {
     public int Day => 7;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var bags = new BagCollection();
         var lines = input.ToLines();
@@ -14,7 +14,7 @@ internal class Day07 : IPuzzleDay
         return Task.FromResult(bagList.Count().ToString());
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var bags = new BagCollection();
         var lines = input.ToLines();

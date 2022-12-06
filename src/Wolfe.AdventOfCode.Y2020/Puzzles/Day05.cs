@@ -4,7 +4,7 @@ internal class Day05 : IPuzzleDay
 {
     public int Day => 5;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) =>
         input
             .ToLines()
             .Select(ParseBoardingPass)
@@ -13,7 +13,7 @@ internal class Day05 : IPuzzleDay
             .ToString()
             .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var seatIds = input
             .ToLines()

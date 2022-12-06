@@ -4,7 +4,7 @@ internal class Day03 : IPuzzleDay
 {
     public int Day => 3;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(l => l.SplitByLength(l.Length / 2))
         .Select(FindCommon)
@@ -14,7 +14,7 @@ internal class Day03 : IPuzzleDay
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Chunk(3)
         .Select(FindCommon)

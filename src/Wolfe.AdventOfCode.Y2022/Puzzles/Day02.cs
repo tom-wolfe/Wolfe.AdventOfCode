@@ -4,7 +4,7 @@ internal class Day02 : IPuzzleDay
 {
     public int Day => 2;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Round.FromInstruction)
         .Select(r => r.Score)
@@ -12,7 +12,7 @@ internal class Day02 : IPuzzleDay
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Round.FromWinState)
         .Select(r => r.Score)

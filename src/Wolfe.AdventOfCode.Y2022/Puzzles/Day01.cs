@@ -4,13 +4,13 @@ internal class Day01 : IPuzzleDay
 {
     public int Day => 1;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) =>
         CountCalories(input)
             .Max()
             .ToString()
             .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) =>
         CountCalories(input)
             .OrderByDescending(c => c)
             .Take(3)

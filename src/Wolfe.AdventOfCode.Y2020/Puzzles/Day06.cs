@@ -4,14 +4,14 @@ internal class Day06 : IPuzzleDay
 {
     public int Day => 6;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var groups = ParseGroups(input);
         var sum = groups.Sum(g => g.People.SelectMany(p => p.Answers).Distinct().Count());
         return Task.FromResult(sum.ToString());
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var groups = ParseGroups(input);
         var sum = groups.Sum(g => g.People[0].Answers.Count(a => g.People.All(p => p.Answers.Contains(a))));

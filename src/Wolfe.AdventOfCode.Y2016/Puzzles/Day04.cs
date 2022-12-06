@@ -6,7 +6,7 @@ internal class Day04 : IPuzzleDay
 
     public int Day => 4;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(ParseRoom)
         .Where(r => r.IsReal())
@@ -15,7 +15,7 @@ internal class Day04 : IPuzzleDay
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(ParseRoom)
         .First(r => r.Decrypt() == "northpole object storage")

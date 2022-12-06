@@ -18,8 +18,8 @@ public static class PuzzleRunner
             var input1 = PuzzleInput.GetPuzzleInput(puzzle.Day, 1);
             var input2 = PuzzleInput.GetPuzzleInput(puzzle.Day, 2);
 
-            var part1 = puzzle.Part1(await input1);
-            var part2 = puzzle.Part2(await input2);
+            var part1 = puzzle.Part1((await input1) ?? "");
+            var part2 = puzzle.Part2((await input2) ?? "");
 
             Console.WriteLine($"Day {puzzle.Day}:");
             Console.WriteLine($"  Part 1 Solution: {await part1}");

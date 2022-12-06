@@ -9,7 +9,7 @@ internal partial class Day05 : IPuzzleDay
 
     public int Day => 5;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var (rawState, rawInstructions) = input.GroupLines();
 
@@ -24,7 +24,7 @@ internal partial class Day05 : IPuzzleDay
             .ToTask();
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var (rawState, rawInstructions) = input.GroupLines();
 

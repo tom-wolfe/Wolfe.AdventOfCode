@@ -6,13 +6,13 @@ internal class Day04 : IPuzzleDay
 
     private static readonly Regex PassportRegex = new(@"(?<key>\D{3}):(?<value>[^\s]+)");
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) =>
         ParsePassports(input.ToLines())
             .Count(p => p.IsValid())
             .ToString()
             .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) =>
         ParsePassports(input.ToLines())
             .Count(p => p.IsValidStrict())
             .ToString()

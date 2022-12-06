@@ -4,7 +4,7 @@ internal class Day01 : IPuzzleDay
 {
     public int Day => 1;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var values = input.ToLines().Select(int.Parse);
 
@@ -13,7 +13,7 @@ internal class Day01 : IPuzzleDay
         return Task.FromResult(solution.ToString());
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var values = input.ToLines().Select(int.Parse);
 
@@ -30,8 +30,8 @@ internal class Day01 : IPuzzleDay
             foreach (var a in source)
             {
                 var b = sum - a;
-                if (abPairs.ContainsKey(b))
-                    return (b, abPairs[b]);
+                if (abPairs.TryGetValue(b, out var v))
+                    return (b, v);
                 abPairs[a] = b;
             }
 

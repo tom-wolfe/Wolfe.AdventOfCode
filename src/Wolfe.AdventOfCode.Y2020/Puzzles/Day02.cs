@@ -6,14 +6,14 @@ internal class Day02 : IPuzzleDay
 
     private static readonly Regex PasswordRegex = new(@"(?<min>\d+)-(?<max>\d+) (?<letter>\D): (?<password>\D+)");
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(ParsePassword)
         .Count(IsValid)
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(ParsePassword)
         .Count(IsValidPart2)

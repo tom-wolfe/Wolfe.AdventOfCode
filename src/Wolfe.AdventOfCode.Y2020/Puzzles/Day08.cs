@@ -4,14 +4,14 @@ internal class Day08 : IPuzzleDay
 {
     public int Day => 8;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var stateMachine = new StateMachine(input.ToLines());
         var result = stateMachine.RunUntilLoop();
         return Task.FromResult(result.ToString());
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var stateMachine = new StateMachine(input.ToLines());
         var result = stateMachine.RunWithAutoFix();

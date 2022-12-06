@@ -4,13 +4,13 @@ internal class Day03 : IPuzzleDay
 {
     public int Day => 3;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) =>
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) =>
         new TreeMap(input)
             .CountTrees(3, 1)
             .ToString()
             .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var map = new TreeMap(input);
         var part1 = map.CountTrees(1, 1);

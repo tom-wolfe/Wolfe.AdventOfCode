@@ -4,14 +4,14 @@ internal class Day04 : IPuzzleDay
 {
     public int Day => 4;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Parse)
         .Count(FuncHelpers.Gather<int[], int[], bool>(FullyContains))
         .ToString()
         .ToTask();
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default) => input
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => input
         .ToLines()
         .Select(Parse)
         .Count(FuncHelpers.Gather<int[], int[], bool>(HaveOverlap))

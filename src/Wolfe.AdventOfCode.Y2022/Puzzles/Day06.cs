@@ -4,7 +4,7 @@ internal partial class Day06 : IPuzzleDay
 {
     public int Day => 6;
 
-    public Task<string> Part1(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         const int sequenceLength = 4;
 
@@ -26,7 +26,7 @@ internal partial class Day06 : IPuzzleDay
         return "0".ToTask();
     }
 
-    public Task<string> Part2(string? input, CancellationToken cancellationToken = default)
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
 
 
