@@ -14,8 +14,23 @@ internal class Day07 : IPuzzleDay
             .ToTask();
     }
 
-    public Task<string> Part2(string input, CancellationToken cancellationToken = default) =>
-        "".ToTask();
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
+    {
+        const long totalSpace = 70000000;
+        const long neededSpace = 30000000;
+
+        var root = Parse(input);
+        var availableSpace = totalSpace - root.Size;
+
+        var spaceToFree = neededSpace - availableSpace;
+
+        return FlattenDirectories(root)
+            .Select(d => d.Size)
+            .Where(d => d >= spaceToFree)
+            .Min()
+            .ToString()
+            .ToTask();
+    }
 
     private static DirectoryObject Parse(string input)
     {
