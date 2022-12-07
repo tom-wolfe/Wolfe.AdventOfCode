@@ -4,15 +4,12 @@ internal class Day07 : IPuzzleDay
 {
     public int Day => 7;
 
-    public Task<string> Part1(string input, CancellationToken cancellationToken = default)
-    {
-        var root = Parse(input);
-        return FlattenDirectories(root)
+    public Task<string> Part1(string input, CancellationToken cancellationToken = default) =>
+        FlattenDirectories(Parse(input))
             .Where(d => d.Size <= 100000)
             .Sum(d => d.Size)
             .ToString()
             .ToTask();
-    }
 
     public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
@@ -21,7 +18,6 @@ internal class Day07 : IPuzzleDay
 
         var root = Parse(input);
         var availableSpace = totalSpace - root.Size;
-
         var spaceToFree = neededSpace - availableSpace;
 
         return FlattenDirectories(root)
@@ -36,7 +32,6 @@ internal class Day07 : IPuzzleDay
     {
         var lines = input.ToLines().GetSneakyEnumerator();
         var root = new DirectoryObject("/", null);
-
         var currentDirectory = root;
 
         while (lines.MoveNext() && lines.Current != null)
@@ -77,7 +72,7 @@ internal class Day07 : IPuzzleDay
         return root;
     }
 
-    private IEnumerable<DirectoryObject> FlattenDirectories(DirectoryObject root)
+    private static IEnumerable<DirectoryObject> FlattenDirectories(DirectoryObject root)
     {
 
         var dirs = root.Entries.OfType<DirectoryObject>();
@@ -91,14 +86,7 @@ internal class Day07 : IPuzzleDay
         }
     }
 
-    interface IFileSystemObject
-    {
-        DirectoryObject? Parent { get; }
-        string Name { get; }
-        long Size { get; }
-    }
-
-    abstract class FileSystemObject : IFileSystemObject
+    abstract class FileSystemObject
     {
         private readonly string _type;
 
@@ -128,6 +116,6 @@ internal class Day07 : IPuzzleDay
     {
         public DirectoryObject(string name, DirectoryObject? parent): base(name, "dir", parent) { }
         public override long Size => Entries.Sum(f => f.Size);
-        public List<IFileSystemObject> Entries = new();
+        public List<FileSystemObject> Entries = new();
     }
 }
