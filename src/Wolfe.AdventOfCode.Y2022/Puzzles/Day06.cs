@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
-
-namespace Wolfe.AdventOfCode.Y2022.Puzzles;
+﻿namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
 internal partial class Day06 : IPuzzleDay
 {
