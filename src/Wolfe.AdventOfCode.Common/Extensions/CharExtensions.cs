@@ -9,9 +9,10 @@ public static class CharExtensions
         var lChar = char.ToLower(input);
         var cIndex = Alphabet.IndexOf(lChar);
 
-        if (cIndex == -1) { return input; }
+        if (cIndex == -1)
+        { return input; }
         cIndex = (cIndex + distance) % Alphabet.Length;
-        
+
         return input == lChar ? Alphabet[cIndex] : char.ToUpper(Alphabet[cIndex]);
     }
 }

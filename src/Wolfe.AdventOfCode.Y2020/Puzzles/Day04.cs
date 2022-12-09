@@ -45,7 +45,8 @@ internal class Day04 : IPuzzleDay
 
         public bool IsValidStrict()
         {
-            if (!IsValid()) return false;
+            if (!IsValid())
+                return false;
             return ValidateByr() && ValidateIyr() && ValidateEyr() && ValidateHgt()
                    && ValidateHcl() && ValidateEcl() && ValidatePid();
 
@@ -72,7 +73,8 @@ internal class Day04 : IPuzzleDay
         private bool ValidateHgt()
         {
             var match = HgtRegex.Match(this["hgt"]);
-            if (!match.Success) { return false; }
+            if (!match.Success)
+            { return false; }
             var unit = match.Groups["unit"].Value;
             int.TryParse(match.Groups["height"].Value, out var height);
             return unit switch

@@ -8,7 +8,8 @@ internal class Day07 : IPuzzleDay
     {
         var bags = new BagCollection();
         var lines = input.ToLines();
-        foreach (var line in lines) bags.AddBag(line);
+        foreach (var line in lines)
+            bags.AddBag(line);
 
         var bagList = bags.BagsEventuallyContaining("shiny", "gold").ToList();
         return Task.FromResult(bagList.Count().ToString());
@@ -18,7 +19,8 @@ internal class Day07 : IPuzzleDay
     {
         var bags = new BagCollection();
         var lines = input.ToLines();
-        foreach (var line in lines) bags.AddBag(line);
+        foreach (var line in lines)
+            bags.AddBag(line);
 
         var count = bags.CountBagsWithin("shiny", "gold");
         return Task.FromResult(count.ToString());
@@ -42,7 +44,8 @@ internal class Day07 : IPuzzleDay
             var contents = GetOrCreateBag(adjective, color);
             while (words.Count > 0)
             {
-                if (!int.TryParse(words.Dequeue(), out var qty)) break;
+                if (!int.TryParse(words.Dequeue(), out var qty))
+                    break;
                 var innerAdj = words.Dequeue();
                 var innerCol = words.Dequeue();
                 contents.Add((qty, innerAdj, innerCol));
@@ -64,7 +67,8 @@ internal class Day07 : IPuzzleDay
             var parents = BagsContaining(adjective, color);
             foreach (var parent in parents)
             {
-                if (runningCount.Contains(parent)) continue;
+                if (runningCount.Contains(parent))
+                    continue;
                 runningCount.Add(parent);
                 BagsWhereContainsCore(parent.Item1, parent.Item2, runningCount);
             }
@@ -88,7 +92,8 @@ internal class Day07 : IPuzzleDay
         private List<(int, string, string)> GetOrCreateBag(string adjective, string color)
         {
             var key = (adjective, color);
-            if (_bags.TryGetValue(key, out var contents)) return contents;
+            if (_bags.TryGetValue(key, out var contents))
+                return contents;
             return _bags[key] = new();
         }
     }

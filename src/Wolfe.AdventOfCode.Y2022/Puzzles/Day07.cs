@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode.Y2022.Puzzles;
+namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
 internal class Day07 : IPuzzleDay
 {
@@ -48,7 +48,7 @@ internal class Day07 : IPuzzleDay
                     };
                     break;
                 case "ls":
-                    while (!lines.Peek()?.StartsWith("$") ?? false)
+                    while (!lines.Peek()?.StartsWith("$", StringComparison.Ordinal) ?? false)
                     {
                         lines.MoveNext();
                         var (attribute, name) = lines.Current.Split(" ");
@@ -105,7 +105,7 @@ internal class Day07 : IPuzzleDay
 
     class FileObject : FileSystemObject
     {
-        public FileObject(string name, int size, DirectoryObject parent): base(name, "file", parent)
+        public FileObject(string name, int size, DirectoryObject parent) : base(name, "file", parent)
         {
             Size = size;
         }
@@ -114,7 +114,7 @@ internal class Day07 : IPuzzleDay
 
     class DirectoryObject : FileSystemObject
     {
-        public DirectoryObject(string name, DirectoryObject? parent): base(name, "dir", parent) { }
+        public DirectoryObject(string name, DirectoryObject? parent) : base(name, "dir", parent) { }
         public override long Size => Entries.Sum(f => f.Size);
         public List<FileSystemObject> Entries = new();
     }

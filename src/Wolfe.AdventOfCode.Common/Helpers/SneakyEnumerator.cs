@@ -51,7 +51,8 @@ namespace Wolfe.AdventOfCode.Helpers
 
         public T? Peek()
         {
-            if (_hasPeeked) return _peeked;
+            if (_hasPeeked)
+                return _peeked;
 
             _hasPeeked = true;
             return _peeked = _source.GetNext();

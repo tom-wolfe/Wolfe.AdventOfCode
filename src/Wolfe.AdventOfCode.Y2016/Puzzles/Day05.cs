@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using System.Xml.Linq;
 
 namespace Wolfe.AdventOfCode.Y2016.Puzzles;
 

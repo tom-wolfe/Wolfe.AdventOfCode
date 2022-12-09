@@ -11,15 +11,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2020", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2016", "src\Wolfe.AdventOfCode.Y2016\Wolfe.AdventOfCode.Y2016.csproj", "{35DB3760-8A92-4C8F-B960-55C32DA7A92C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2017", "src\Wolfe.AdventOfCode.Y2017\Wolfe.AdventOfCode.Y2017.csproj", "{75C9AB47-B1DC-4EDC-9EAD-D711C15162C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2017", "src\Wolfe.AdventOfCode.Y2017\Wolfe.AdventOfCode.Y2017.csproj", "{75C9AB47-B1DC-4EDC-9EAD-D711C15162C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2018", "src\Wolfe.AdventOfCode.Y2018\Wolfe.AdventOfCode.Y2018.csproj", "{381317F1-60DB-44AA-93E9-9357622DD82A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2018", "src\Wolfe.AdventOfCode.Y2018\Wolfe.AdventOfCode.Y2018.csproj", "{381317F1-60DB-44AA-93E9-9357622DD82A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2019", "src\Wolfe.AdventOfCode.Y2019\Wolfe.AdventOfCode.Y2019.csproj", "{BEB9F48E-73F7-4B85-88A6-19F65B39F42A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2019", "src\Wolfe.AdventOfCode.Y2019\Wolfe.AdventOfCode.Y2019.csproj", "{BEB9F48E-73F7-4B85-88A6-19F65B39F42A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2021", "src\Wolfe.AdventOfCode.Y2021\Wolfe.AdventOfCode.Y2021.csproj", "{068C540E-7B30-4516-AC09-D4B7CC28CB51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2021", "src\Wolfe.AdventOfCode.Y2021\Wolfe.AdventOfCode.Y2021.csproj", "{068C540E-7B30-4516-AC09-D4B7CC28CB51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2015", "src\Wolfe.AdventOfCode.Y2015\Wolfe.AdventOfCode.Y2015.csproj", "{99CFECBC-E92D-440E-900D-D0A3599A2BED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfe.AdventOfCode.Y2015", "src\Wolfe.AdventOfCode.Y2015\Wolfe.AdventOfCode.Y2015.csproj", "{99CFECBC-E92D-440E-900D-D0A3599A2BED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EditorConfig", "EditorConfig", "{CE42121D-A9E0-44C9-B3F8-44D5B7E5CCE7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

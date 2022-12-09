@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode.Y2022.Puzzles;
+namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
 internal class Day01 : IPuzzleDay
 {

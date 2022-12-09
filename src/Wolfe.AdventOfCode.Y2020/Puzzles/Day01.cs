@@ -46,8 +46,10 @@ internal class Day01 : IPuzzleDay
                 foreach (var b in list)
                 {
                     var c = sum - (a + b);
-                    if (c <= 0) { continue; }
-                    if (list.Contains(c)) { return (a, b, c); }
+                    if (c <= 0)
+                    { continue; }
+                    if (list.Contains(c))
+                    { return (a, b, c); }
                 }
             }
             throw new Exception("No matching triplet found");

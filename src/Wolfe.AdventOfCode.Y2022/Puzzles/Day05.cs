@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
-
 namespace Wolfe.AdventOfCode.Y2022.Puzzles;
+
+using System.Text.RegularExpressions;
 
 internal partial class Day05 : IPuzzleDay
 {
@@ -12,6 +12,10 @@ internal partial class Day05 : IPuzzleDay
     public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
         var (rawState, rawInstructions) = input.GroupLines();
+        if (rawState == null || rawInstructions == null)
+        {
+            throw new InvalidOperationException();
+        }
 
         var state = ParseState(rawState);
         var instructions = ParseInstructions(rawInstructions);
@@ -27,6 +31,10 @@ internal partial class Day05 : IPuzzleDay
     public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var (rawState, rawInstructions) = input.GroupLines();
+        if (rawState == null || rawInstructions == null)
+        {
+            throw new InvalidOperationException();
+        }
 
         var state = ParseState(rawState);
         var instructions = ParseInstructions(rawInstructions);

@@ -1,6 +1,4 @@
-﻿using System.Data;
-using System.Xml.Schema;
-using Wolfe.AdventOfCode.DataStructures;
+﻿using Wolfe.AdventOfCode.DataStructures;
 
 namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
@@ -21,9 +19,6 @@ internal class Day08 : IPuzzleDay
     public Task<string> Part2(string input, CancellationToken cancellationToken = default)
     {
         var map = Parse(input);
-
-        var score = ScenicScore(map, 77, 17);
-
         return map
             .Flatten()
             .Select(n => ScenicScore(map, n.Item1, n.Item2))

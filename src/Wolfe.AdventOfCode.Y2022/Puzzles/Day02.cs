@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode.Y2022.Puzzles;
+namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
 internal class Day02 : IPuzzleDay
 {
@@ -24,7 +24,7 @@ internal class Day02 : IPuzzleDay
 
     private record Round(RockPaperScissors You, RockPaperScissors Opponent)
     {
-        public int Score => (int)You + (Opponent == You ? 3 : You == LosesAgainst(Opponent) ? 6 : 0);
+        public int Score => (int)this.You + (this.Opponent == this.You ? 3 : this.You == LosesAgainst(this.Opponent) ? 6 : 0);
 
         public static Round FromInstruction(string input) => new(Parse(input[2]), Parse(input[0]));
         public static Round FromWinState(string input)
@@ -35,7 +35,7 @@ internal class Day02 : IPuzzleDay
                 'X' => WinsAgainst(opponent),
                 'Y' => opponent,
                 'Z' => LosesAgainst(opponent),
-                _ => throw new ArgumentOutOfRangeException()
+                _ => throw new ArgumentOutOfRangeException(nameof(input))
             };
             return new Round(you, opponent);
         }

@@ -44,7 +44,8 @@ internal class Day03 : IPuzzleDay
             var height = _treeMap.GetLength(1);
             for (var y = 0; y < height; y += ySlope)
             {
-                if (_treeMap[curX, curY]) trees++;
+                if (_treeMap[curX, curY])
+                    trees++;
                 curX = (curX + xSlope) % width;
                 curY = (curY + ySlope) % height;
             }

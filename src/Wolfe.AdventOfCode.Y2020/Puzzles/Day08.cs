@@ -52,7 +52,8 @@ internal class Day08 : IPuzzleDay
             {
                 var instructions = _instructions.Select(SwapInstruction(nopOrJmp.Pop())).ToList();
                 var (result, ranToEnd) = RunUntilLoop(instructions);
-                if (ranToEnd) { return result; }
+                if (ranToEnd)
+                { return result; }
             }
         }
 
@@ -68,16 +69,23 @@ internal class Day08 : IPuzzleDay
 
             while (true)
             {
-                if (history.Contains(curIndex)) { return (accumulator, false); }
-                if (curIndex >= instructions.Count) { return (accumulator, true); }
+                if (history.Contains(curIndex))
+                { return (accumulator, false); }
+                if (curIndex >= instructions.Count)
+                { return (accumulator, true); }
                 history.Add(curIndex);
 
                 var (operation, value) = instructions[curIndex];
                 switch (operation)
                 {
-                    case NOP: break;
-                    case ACC: accumulator += value; break;
-                    case JMP: curIndex += value; continue;
+                    case NOP:
+                        break;
+                    case ACC:
+                        accumulator += value;
+                        break;
+                    case JMP:
+                        curIndex += value;
+                        continue;
                 }
                 curIndex++;
             }

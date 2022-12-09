@@ -25,7 +25,8 @@ internal class Day05 : IPuzzleDay
         var expected = seatIds[0];
         foreach (var id in seatIds)
         {
-            if (id != expected) return Task.FromResult(expected.ToString());
+            if (id != expected)
+                return Task.FromResult(expected.ToString());
             expected = id + 1;
         }
         return Task.FromResult("Error");
