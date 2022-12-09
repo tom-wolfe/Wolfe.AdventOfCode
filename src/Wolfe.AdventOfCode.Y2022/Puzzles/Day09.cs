@@ -1,44 +1,70 @@
 namespace Wolfe.AdventOfCode.Y2022.Puzzles;
 
-using System.Drawing;
-
 internal class Day09 : IPuzzleDay
 {
     public int Day => 9;
 
     public Task<string> Part1(string input, CancellationToken cancellationToken = default)
     {
-        (int X, int Y) head = (0, 0);
-        (int X, int Y) tail = (0, 0);
-
+        var rope = MakeRope(2);
         var instructions = Parse(input);
-
-        var tailPlaces = new List<(int, int)>();
-
-        foreach (var (direction, distance) in instructions)
-        {
-            for (var d = 0; d < distance; d++)
-            {
-                head = MoveHead(direction, head);
-                tail = MoveTail(head, tail);
-                tailPlaces.Add((tail.X, tail.Y));
-            }
-        }
-
-        return tailPlaces
+        return MoveRope(rope, instructions)
             .Distinct()
             .Count()
             .ToString()
             .ToTask();
     }
 
-    public Task<string> Part2(string input, CancellationToken cancellationToken = default) => ""
+    public Task<string> Part2(string input, CancellationToken cancellationToken = default)
+    {
+        var rope = MakeRope(10);
+        var instructions = Parse(input);
+        return MoveRope(rope, instructions)
+            .Distinct()
+            .Count()
+            .ToString()
             .ToTask();
+    }
+
+    private static IEnumerable<(int X, int Y)> MakeRope(int knots) => Enumerable.Range(1, knots).Select(_ => (0, 0));
 
     private static IEnumerable<(char Direction, int Distance)> Parse(string input) => input
         .ToLines()
         .Select(r => r.Split(' '))
         .Select(t => (t[0][0], int.Parse(t[1], CultureInfo.InvariantCulture)));
+
+    private static IEnumerable<(int X, int Y)> MoveRope(IEnumerable<(int X, int Y)> rope, IEnumerable<(char Direction, int Distance)> instructions)
+    {
+        var ropeList = rope.ToList();
+        var knotPlaces = new List<(int X, int Y)>();
+        foreach (var (direction, distance) in instructions)
+        {
+            for (var d = 0; d < distance; d++)
+            {
+                for (var i = 0; i < ropeList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        // If it's the head, move in the given direction.
+                        ropeList[i] = MoveHead(direction, ropeList[i]);
+                    }
+                    else
+                    {
+                        // If it's the tail, then move towards the piece in front.
+                        ropeList[i] = MoveKnot(ropeList[i - 1], ropeList[i]);
+                    }
+
+                    // If it's the last piece of rope.
+                    if (i == ropeList.Count - 1)
+                    {
+                        knotPlaces.Add((ropeList[i].X, ropeList[i].Y));
+                    }
+                }
+            }
+        }
+
+        return knotPlaces;
+    }
 
     private static (int X, int Y) MoveHead(char direction, (int X, int Y) head) =>
         direction switch
@@ -50,7 +76,7 @@ internal class Day09 : IPuzzleDay
             _ => throw new InvalidOperationException("Invalid direction")
         };
 
-    private static (int X, int Y) MoveTail((int X, int Y) head, (int X, int Y) tail)
+    private static (int X, int Y) MoveKnot((int X, int Y) head, (int X, int Y) tail)
     {
         var (x, y) = tail;
 
