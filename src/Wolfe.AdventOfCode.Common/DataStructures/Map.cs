@@ -39,7 +39,7 @@
 
         public T[] GetColumn(int column)
         {
-            var columnData = new T[Columns];
+            var columnData = new T[Rows];
             for (var r = 0; r < Rows; r++)
             {
                 columnData[r] = _data[column, r];
