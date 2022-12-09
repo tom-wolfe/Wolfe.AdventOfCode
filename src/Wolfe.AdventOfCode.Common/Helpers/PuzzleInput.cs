@@ -1,16 +1,22 @@
-﻿namespace Wolfe.AdventOfCode.Helpers;
+namespace Wolfe.AdventOfCode.Helpers;
 
 public static class PuzzleInput
 {
     public static async Task<string?> GetPuzzleInput(int day, int part)
     {
-        var inputPath = GetInputPath(day, part);
-        if (!File.Exists(inputPath))
+        var path = GetInputPaths(day, part).FirstOrDefault(File.Exists);
+        if (path == null)
         {
             return null;
         }
-        return await File.ReadAllTextAsync(GetInputPath(day, part));
+
+        var contents = await File.ReadAllTextAsync(path);
+        return contents.Trim(Environment.NewLine.ToArray());
     }
 
-    private static string GetInputPath(int day, int part) => string.Format($"./Inputs/Day{day:D2}/Part{part}.txt");
+    private static IEnumerable<string> GetInputPaths(int day, int part)
+    {
+        yield return string.Format($"./Inputs/Day{day:D2}/Part{part}.txt");
+        yield return string.Format($"./Inputs/Day{day:D2}.txt");
+    }
 }
