@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode.Helpers;
+namespace Wolfe.AdventOfCode.Helpers;
 
 public static class PuzzleRunner
 {
@@ -21,10 +21,25 @@ public static class PuzzleRunner
             var part1 = puzzle.Part1((await input1) ?? "");
             var part2 = puzzle.Part2((await input2) ?? "");
 
+            var answer1 = await part1;
+            var answer2 = await part2;
+
             Console.WriteLine($"Day {puzzle.Day}:");
-            Console.WriteLine($"  Part 1 Solution: {await part1}");
-            Console.WriteLine($"  Part 2 Solution: {await part2}");
-            Console.WriteLine();
+
+            Console.Write("  Part 1: ");
+            if (answer1.Contains(Environment.NewLine))
+            {
+                Console.WriteLine();
+            }
+            Console.WriteLine(answer1);
+
+
+            Console.Write("  Part 2: ");
+            if (answer2.Contains(Environment.NewLine))
+            {
+                Console.WriteLine();
+            }
+            Console.WriteLine(answer2);
         }
 
         Console.ReadLine();
