@@ -1,4 +1,4 @@
-﻿namespace Wolfe.AdventOfCode.Extensions;
+namespace Wolfe.AdventOfCode.Extensions;
 
 public static class CharExtensions
 {

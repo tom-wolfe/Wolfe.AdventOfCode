@@ -1,6 +1,8 @@
-﻿namespace Wolfe.AdventOfCode.Extensions;
+namespace Wolfe.AdventOfCode.Extensions;
 
-public static class StringExtensions
+using System.Text.RegularExpressions;
+
+public static partial class StringExtensions
 {
     public static IEnumerable<string> SplitByLength(this string input, int size) => input.Chunk(size).Select(c => c.Join());
 
@@ -11,10 +13,10 @@ public static class StringExtensions
     }
 
     public static IEnumerable<string> ToLines(this string? input) =>
-        string.IsNullOrEmpty(input) ? Enumerable.Empty<string>() : input.Split(Environment.NewLine);
+        string.IsNullOrEmpty(input) ? Enumerable.Empty<string>() : NewLineRegex().Split(input);
 
     public static List<List<string>> GroupLines(this string? input) =>
-        GroupLines(input.ToLines());
+        input.ToLines().GroupLines();
 
     public static List<List<string>> GroupLines(this IEnumerable<string> lines)
     {
@@ -52,4 +54,7 @@ public static class StringExtensions
     public static string CaesarShift(this string? input, int distance) => (input ?? "")
         .Select(c => c.CaesarShift(distance))
         .Join();
+
+    [GeneratedRegex("[\r\n]+")]
+    private static partial Regex NewLineRegex();
 }

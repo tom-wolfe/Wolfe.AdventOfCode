@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EditorConfig", "EditorConfi
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfe.AdventOfCode.Y2023", "Wolfe.AdventOfCode.Y2023\Wolfe.AdventOfCode.Y2023.csproj", "{C5A42553-D827-4076-93B1-75A83D5D21A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{99CFECBC-E92D-440E-900D-D0A3599A2BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CFECBC-E92D-440E-900D-D0A3599A2BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CFECBC-E92D-440E-900D-D0A3599A2BED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A42553-D827-4076-93B1-75A83D5D21A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A42553-D827-4076-93B1-75A83D5D21A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A42553-D827-4076-93B1-75A83D5D21A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A42553-D827-4076-93B1-75A83D5D21A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
